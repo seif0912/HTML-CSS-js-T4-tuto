@@ -69,3 +69,26 @@ function randomize(){
         },5000)
     }
 }
+
+
+// skills
+
+let skills = document.querySelector('.skills')
+
+window.onscroll = function(){
+
+    let skillsOffsetTop = skills.offsetTop;
+
+    let skillsOuterHeight = skills.offsetHeight
+
+    let windowHeight = this.innerHeight
+
+    let windowScrollTop = this.pageYOffset;
+
+    if(windowScrollTop >(skillsOffsetTop + skillsOuterHeight - windowHeight)){
+        let allskills = document.querySelectorAll('.skill-box .skill-progress span')
+        allskills.forEach(skill =>{
+            skill.style.width = skill.dataset.progress;
+        })
+    }
+}
