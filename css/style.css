@@ -4,6 +4,10 @@
     --main-color: #ff9800;
 }
 
+*{
+    box-sizing: border-box;
+}
+
 body{
     font-family: 'Open Sans', sans-serif;
 }
@@ -11,10 +15,10 @@ body{
 
 .settings-box{
     position: fixed;
-    left: -200px;
+    left: -250px;
     top: 0;
     background-color: rgb(255, 255, 255);
-    width: 200px;
+    width: 250px;
     z-index: 9999;
     min-height: 100vh;
     transition: .25s;
@@ -41,6 +45,9 @@ body{
 
 .settings-box .option-box{
     padding: 20px;
+    text-align: center;
+    background-color: #eee;
+    margin: 10px;
 }
 
 .settings-box .option-box h4{
@@ -52,20 +59,23 @@ body{
     list-style: none;
     text-align: center;
     padding: 0;
+    margin: 10px 0 0;
 }
 
 .settings-box .option-box .colors-list li{
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background-color: #333;
     border-radius: 50%;
     cursor: pointer;
     opacity: .3;
     display: inline-block;
+    border: 3px solid #eee;
 }
 
 .settings-box .option-box .colors-list li.active{
     opacity: 1;
+    border-color: white;
 }
 
 
@@ -88,6 +98,26 @@ body{
 .settings-box .option-box .colors-list li:nth-child(5){
     background-color: #cc22b5;
 }
+
+.settings-box .option-box .yes,
+.settings-box .option-box .no{
+    width: 50px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 15px;
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    opacity: .5;
+    background-color: var(--main-color);
+    cursor: pointer;
+}
+
+.settings-box .random-background span.active{
+    opacity: 1;
+    font-weight: bold;
+}
+
 
 
 /* end setting box */
