@@ -92,3 +92,43 @@ window.onscroll = function(){
         })
     }
 }
+
+// gallery
+let gallery = document.querySelectorAll('.gallery img')
+
+gallery.forEach(img=>{
+    img.addEventListener("click", (e)=>{
+        // create overlay element
+        let overlay = document.createElement("div")
+        overlay.className = 'popup-overlay'
+        document.body.appendChild(overlay)
+        // create popup box
+        let popupBox = document.createElement('div')
+        popupBox.className = 'popup-box'
+        if(img.alt !== null){
+            let imgHeading = document.createElement('h3')
+            let imgText = document.createTextNode(img.alt) 
+            imgHeading.appendChild(imgText)
+            popupBox.appendChild(imgHeading)
+        }
+        let popupImage = document.createElement('img')
+        popupImage.src = img.src
+        popupBox.appendChild(popupImage)
+        document.body.appendChild(popupBox)
+        
+        let closeBtn = document.createElement("span")
+        let closeBtnText = document.createTextNode('X')
+        closeBtn.appendChild(closeBtnText)
+        closeBtn.className = 'close-button'
+        popupBox.appendChild(closeBtn)
+
+        overlay.addEventListener('click', function(){
+            overlay.remove()
+            popupBox.remove()
+        })
+        closeBtn.addEventListener('click', function(){
+            overlay.remove()
+            popupBox.remove()
+        })
+    })
+})
