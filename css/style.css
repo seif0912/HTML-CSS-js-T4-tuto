@@ -410,3 +410,122 @@ body{
 }
 
 /* end Gallery */
+
+
+/* start timeline */
+
+.timeline{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #eee;
+}
+
+.timeline .timeline-content{
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline .timeline-content::before{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: var(--main-color);
+    left: 50%;
+    margin-left: -1px;
+    top: 0;
+}
+
+.timeline .timeline-content .year{
+    margin: 20px auto;
+    width: 50px;
+    background-color: var(--main-color);
+    position: relative;
+    z-index: 2;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    padding: 2px 5px;
+    font-weight: bold;
+}
+
+.timeline .timeline-content .left,
+.timeline .timeline-content .right{
+    width: calc(50% - 25px);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline .timeline-content .left{
+    float: left;
+}
+
+.timeline .timeline-content .left::before{
+    right: -34px;
+
+}
+
+.timeline .timeline-content .right{
+    float: right;
+}
+
+.timeline .timeline-content .right::before{
+    left: -34px;
+}
+
+.timeline .timeline-content .right::before,
+.timeline .timeline-content .left::before{
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border: 2px solid var(--main-color);
+    position: absolute;
+    border-radius: 50%;
+    top: 20px;
+}
+
+.timeline .timeline-content .content{
+    padding: 20px;
+    background-color: white;
+}
+
+.timeline .timeline-content .content h3{
+    font-weight: bold;
+    color: var(--main-color);
+    margin: 0 0 10px;
+}
+
+.timeline .timeline-content .content p{
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.clearfix{
+    clear: both;
+}
+
+.timeline .timeline-content .left .content::before,
+.timeline .timeline-content .right .content::before{
+    content: '';
+    border-style: solid;
+    border-width: 10px;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 20px;
+}
+
+.timeline .timeline-content .left .content::before{
+    right: -20px;
+    
+    border-color: transparent transparent transparent white;
+}
+
+.timeline .timeline-content .right .content::before{
+    left: -20px;
+    
+    border-color: transparent white transparent transparent;
+}
+/* end timeline */
