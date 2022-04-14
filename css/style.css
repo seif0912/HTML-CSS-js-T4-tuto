@@ -155,6 +155,62 @@ body{
 
 /* end setting box */
 
+/* start landing page */
+
+.nav-bullets{
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    z-index: 9999;
+}
+
+.nav-bullets .bullet{
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: 3px solid var(--main-color);
+    margin: 20px auto;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-bullets .bullet .tooltip{
+    background-color: var(--main-color);
+    width: 120px;
+    color: white;
+    padding: 5px 10px;
+    position: absolute;
+    right: 40px;
+    top: -10px;
+    text-transform: capitalize;
+    text-align: center;
+    cursor: default;
+    pointer-events: none;
+    display: none;
+}
+
+.nav-bullets .bullet .tooltip::before {
+    content: '';
+    border-style: solid;
+    border-width: 10px;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -20px;
+    border-color: transparent transparent transparent var(--main-color);
+}
+
+.nav-bullets .bullet:hover .tooltip{
+    display: block;
+}
+
+
+/* end setting box */
 
 /* start landing page */
 
