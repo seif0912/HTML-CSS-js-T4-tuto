@@ -55,6 +55,7 @@ body{
     z-index: 9999;
     min-height: 100vh;
     transition: .25s;
+    border-right: 2px solid #eee;
 }
 .settings-box.open{
     left: 0;
@@ -147,6 +148,11 @@ body{
 }
 
 .settings-box .random-background span.active{
+    opacity: 1;
+    font-weight: bold;
+}
+
+.settings-box .bullets-option span.active{
     opacity: 1;
     font-weight: bold;
 }

@@ -22,15 +22,14 @@ document.querySelector('.toggle-settings i').onclick = function(){
 const randomBackEl = document.querySelectorAll(".random-background span")
 randomBackEl.forEach(span => {
     span.addEventListener('click', (e)=>{
-        document.querySelector(".random-background span.active").classList.remove("active")
-        e.target.classList.add('active')
+        handleActive(e)
         if(e.target.dataset.background === 'yes'){
             backgroundOption = true
-            console.log(backgroundOption)
+            //console.log(backgroundOption)
             randomize()
         }else{
             backgroundOption = false;
-            console.log(backgroundOption)
+            //console.log(backgroundOption)
             clearInterval(bI)
         }
         //localStorage.setItem('color_option', e.target.dataset.color)
@@ -44,8 +43,7 @@ const colorsLi = document.querySelectorAll(".colors-list li")
 colorsLi.forEach(li => {
     li.addEventListener('click', (e)=>{
         document.documentElement.style.setProperty('--main-color', e.target.dataset.color)
-        document.querySelector(".colors-list li.active").classList.remove("active")
-        e.target.classList.add('active')
+        handleActive(e)
         localStorage.setItem('color_option', e.target.dataset.color)
     })
 })
@@ -55,8 +53,6 @@ colorsLi.forEach(li => {
 // background
 let landingPage = document.querySelector('.landing-page')
 let imgsArray = ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg",]
-
-
 
 randomize()
 
@@ -133,13 +129,63 @@ gallery.forEach(img=>{
     })
 })
 
-// bullets
+// links
+
+const allLinks = document.querySelectorAll(".links a")
 const allBullets = document.querySelectorAll(".nav-bullets .bullet")
-allBullets.forEach(bullet =>{
-    bullet.addEventListener('click', (e)=>{
-        document.querySelector(e.target.dataset.section).scrollIntoView({
-            behavior: 'smooth'
+
+scrollTo(allLinks)
+scrollTo(allBullets)
+
+function scrollTo(elements){
+    elements.forEach(ele =>{
+        ele.addEventListener('click', (e)=>{
+            e.preventDefault()
+            document.querySelector(e.target.dataset.section).scrollIntoView({
+                behavior: 'smooth'
+            })
+            
         })
-        
+    })
+}
+
+// active state
+function handleActive(ev){
+    ev.target.parentElement.querySelectorAll('.active').forEach(element =>{
+        element.classList.remove('active')
+    })
+    ev.target.classList.add('active')
+}
+
+
+
+///
+let bulletsSpan = document.querySelectorAll('.bullets-option span')
+let bulletsContainer = document.querySelector('.nav-bullets')
+let bulletLocalItem = localStorage.getItem('bullets_option')
+
+if(bulletLocalItem !== null){
+    bulletsSpan.forEach(span=>{
+        span.classList.remove('active')
+    })
+    if(bulletLocalItem === 'block'){
+        bulletsContainer.style.display = 'block'
+        bulletsSpan[0].classList.add('active')
+    }else{
+        bulletsContainer.style.display = 'none'
+        bulletsSpan[1].classList.add('active')
+    }
+}
+
+bulletsSpan.forEach(span =>{
+    span.addEventListener('click',(e)=>{
+        if(span.dataset.display === 'show'){
+            bulletsContainer.style.display = 'block'
+            localStorage.setItem('bullets_option','block')
+        }else{
+            bulletsContainer.style.display = 'none'
+            localStorage.setItem('bullets_option','none')
+        }
+        handleActive(e)
     })
 })
