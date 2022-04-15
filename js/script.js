@@ -189,3 +189,11 @@ bulletsSpan.forEach(span =>{
         handleActive(e)
     })
 })
+
+// reset button
+document.querySelector('.reset-options').addEventListener('click',function(){
+    //localStorage.clear()
+    localStorage.removeItem('bullets_options')
+    localStorage.removeItem('color_option')
+    window.location.reload()
+})

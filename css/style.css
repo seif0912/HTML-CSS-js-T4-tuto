@@ -215,6 +215,20 @@ body{
     display: block;
 }
 
+.reset-options{
+    background-color: red;
+    border: none;
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    display: block;
+    padding: 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
 
 /* end setting box */
 
